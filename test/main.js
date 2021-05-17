@@ -1,21 +1,9 @@
-var places = ["World", "America", "Europe", "Asia"];
-var info = {
-  message: "Hello world!",
-  counter: 0
-};
-
 new Vue({
   el: "#app",
   data() {
     return {
       info: null
     };
-  },
-  methods: {
-    dosomething: function (event) {
-      this.counter += 1;
-      this.message = "Hello " + places[this.counter % 4] + "!";
-    }
   },
   mounted() {
     // const [books, setBooks] = useState(null);
