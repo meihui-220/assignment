@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <div v-for="data in info" class="book-data">
+        <div>
+          <span>{{ data.book }}</span>
+        </div>
+        <div>
+          <span>{{ data.chapter }}</span>
+        </div>
+      </div> -->
+      <button v-on:click="greet">Button</button>
+      <div>
+        <h2>Book Name: {{info.book.name}}</h2>
+      </div>
+      <div className="details">
+        <li>Author: {{info.book.author}}</li>
+        <li>Group: {{info.book.group}}</li>
+        <li>Version: {{info.book.version}}</li>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+    <style scoped>
+      .details {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        margin-left: 20px;
+        border-bottom: 2px solid #ccc;
+        padding: 20px;
+      }
+      button {
+        padding: 10px;
+        background-color: #1aa832;
+        color: white;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </body>
+</html>
