@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <div v-for="data in info" class="book-data">
+        <div>
+          <li>Book Name: {{ data.name }}</li>
+        </div>
+        <div>
+          <li>Author: {{ data.author }}</li>
+        </div>
+        <br />
+      </div> -->
+      <!-- <button v-on:click="greet">Button</button> -->
+      <!-- <div>
+        <h2>Book Name: {{info.book.name}}</h2>
+      </div>
+      <div className="details">
+        <li>Author: {{info.book.author}}</li>
+        <li>Group: {{info.book.group}}</li>
+        <li>Version: {{info.book.version}}</li>
+      </div> -->
+
+      <nav
+        class="navbar navbar-expand-lg navbar-light"
+        style="background-color: #e3f2fd;"
+      >
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <router-link class="nav-link" to="BookList">
+              Go To Book List</router-link
+            >
+          </ul>
+        </div>
+      </nav>
+
+      <div class="text-center" style="margin-top: 20px;">
+        <router-view></router-view>
+      </div>
+    </div>
+
+    <!-- <script src="index.js"></script> -->
+    <script src="booklist.js"></script>
+    <script src="verses.js"></script>
+
+    <!-- Vue Instance and Routes -->
+    <script>
+      var routes = [
+        { path: "/BookList", component: BookList },
+        { path: "/Verses/:id", component: Verses, props: true }
+      ];
+
+      var router = new VueRouter({
+        routes: routes,
+        mode: "history",
+        base: "/"
+      });
+
+      var app = new Vue({
+        el: "#app",
+        router: router
+      });
+    </script>
+
+    <style scoped>
+      .details {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        margin-left: 20px;
+        border-bottom: 2px solid #ccc;
+        padding: 20px;
+      }
+      button {
+        padding: 10px;
+        background-color: #1aa832;
+        color: white;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </body>
+</html>
