@@ -56,8 +56,8 @@
     <!-- Vue Instance and Routes -->
     <script>
       var routes = [
-        { path: "/BookList", component: BookList },
-        { path: "/Verses/:id", component: Verses, props: true }
+        { path: "/BookList", component: BookList, props: true },
+        { path: "/Verses", component: Verses, props: true }
       ];
 
       var router = new VueRouter({
