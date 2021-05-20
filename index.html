@@ -37,9 +37,7 @@
       >
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <router-link class="nav-link" to="BookList">
-              Go To Book List</router-link
-            >
+            <router-link class="nav-link" to="/"> Go To Book List</router-link>
           </ul>
         </div>
       </nav>
@@ -56,7 +54,7 @@
     <!-- Vue Instance and Routes -->
     <script>
       var routes = [
-        { path: "/BookList", component: BookList, props: true },
+        { path: "/", component: BookList, props: true },
         { path: "/Verses", name: "Verses", component: Verses, props: true }
       ];
 

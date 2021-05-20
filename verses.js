@@ -6,58 +6,42 @@ var Verses = {
     return {
       info: null,
       currentId: [],
-      id: null,
-      bookData: []
+      version: null,
+      bookName: null,
+      abbrev: null,
+      chapter: null,
+      bookData: [],
+      data1: null
     };
   },
-  // created() {
-  //   this.id = this.$route.params.id;
-  //   console.log("iddddd", this.id);
-  // },
+  created() {
+    this.version = this.$route.params.version;
+    this.bookName = this.$route.params.bookName;
+    this.abbrev = this.$route.params.bookAbbrev;
+    this.chapter = this.$route.params.bookChap;
+    console.log("iddddd", this.version);
+  },
   mounted() {
     this.getData();
     console.log("hi", this.currentId);
+    // console.log("iddddd", this.data);
   },
   template: `
   <div class="bookList">
-  <h2>Book Name: {{bookData.name}}</h2>
+  <h2>Book Name: {{bookName}}</h2>
   <h3>Verses</h3>
     <li v-for="(data, index) in info">Number {{index+1}}: {{data.text}}
 </div>
   `,
   methods: {
     async getData() {
-      console.log("hiiiii", this.id);
-      // versions api
-      let i = [];
-      i = await axios.get("https://www.abibliadigital.com.br/api/versions", {
-        headers: {
-          Authorization: "apiKey"
-        }
-      });
-      this.currentId = i.data[Math.floor(Math.random() * i.data.length)];
-
-      // book Api
-      // let bookData = null;
-      let j = [];
-      j = await axios.get("https://www.abibliadigital.com.br/api/books", {
-        headers: {
-          Authorization: "apiKey"
-        }
-      });
-      this.bookData = j.data[Math.floor(Math.random() * j.data.length)];
-      console.log(this.bookData);
-      // get verses api
-      let version = this.currentId.version;
-      let abbrev = "/" + this.bookData.abbrev.en;
-      let chapter = "/" + this.bookData.chapters;
-
-      // let number = "";
       let versesUrl =
         "https://www.abibliadigital.com.br/api/verses/" +
-        version +
-        abbrev +
-        chapter;
+        this.version +
+        "/" +
+        this.abbrev +
+        "/" +
+        this.chapter;
       console.log("url", versesUrl);
       axios
         .get(versesUrl, {
